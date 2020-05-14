@@ -27,3 +27,5 @@
 
 Wskazane jest przygotowanie specjalnych początkowych rozstawień pionków dla testów
 d, e, f, g, h.
+
+Link do repozytorium: [GitHub](https://github.com/pawlix99/Python---projekt)
