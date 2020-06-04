@@ -33,7 +33,7 @@ def plansza():
 
 
             reset = Button(warcaby, text="Reset", command=reset1)
-            reset.grid(row = 8, columnspan = 8)
+            reset.grid(row=8, columnspan=8)
 
 
 def reset1():
@@ -83,6 +83,25 @@ def action():
                             poprzedniX = wcisnietyX
                             poprzedniY = wcisnietyY
                             wcisniety = False
+                    elif (wcisnietyX == poprzedniX - 2) and (wcisnietyY == poprzedniY + 2 or wcisnietyY == poprzedniY - 2):
+                        if (wcisnietyY == poprzedniY + 2):
+                            if (napis[wcisnietyX + 1][wcisnietyY - 1].get() == "B"):
+                                napis[wcisnietyX][wcisnietyY].set("C")
+                                napis[poprzedniX][poprzedniY].set("")
+                                napis[wcisnietyX + 1][wcisnietyY - 1].set("")
+                                poprzedniX = wcisnietyX
+                                poprzedniY = wcisnietyY
+                                wcisniety = False
+                        elif (wcisnietyY == poprzedniY - 2):
+                            if (napis[wcisnietyX + 1][wcisnietyY + 1].get() == "B"):
+                                napis[wcisnietyX][wcisnietyY].set("C")
+                                napis[poprzedniX][poprzedniY].set("")
+                                napis[wcisnietyX + 1][wcisnietyY + 1].set("")
+                                poprzedniX = wcisnietyX
+                                poprzedniY = wcisnietyY
+                                wcisniety = False
+                        else:
+                            messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
                     else:
                         messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
             else:
@@ -91,13 +110,34 @@ def action():
         if napis[poprzedniX][poprzedniY].get() == "[B]":
             if (przycisk[wcisnietyX][wcisnietyY]["background"] == "black"):
                 if napis[wcisnietyX][wcisnietyY].get() == "":
-                    if (wcisnietyX == poprzedniX + 1) and (wcisnietyY == poprzedniY + 1 or wcisnietyY == poprzedniY - 1):
+                    if (wcisnietyX == poprzedniX + 1) and (
+                            wcisnietyY == poprzedniY + 1 or wcisnietyY == poprzedniY - 1):
                         if napis[wcisnietyX][wcisnietyY].get() == "":
                             napis[wcisnietyX][wcisnietyY].set("B")
                             napis[poprzedniX][poprzedniY].set("")
                             poprzedniX = wcisnietyX
                             poprzedniY = wcisnietyY
                             wcisniety = False
+                    elif (wcisnietyX == poprzedniX + 2) and (
+                            wcisnietyY == poprzedniY + 2 or wcisnietyY == poprzedniY - 2):
+                        if (wcisnietyY == poprzedniY + 2):
+                            if (napis[wcisnietyX - 1][wcisnietyY - 1].get() == "C"):
+                                napis[wcisnietyX][wcisnietyY].set("B")
+                                napis[poprzedniX][poprzedniY].set("")
+                                napis[wcisnietyX - 1][wcisnietyY - 1].set("")
+                                poprzedniX = wcisnietyX
+                                poprzedniY = wcisnietyY
+                                wcisniety = False
+                        elif (wcisnietyY == poprzedniY - 2):
+                            if (napis[wcisnietyX - 1][wcisnietyY + 1].get() == "C"):
+                                napis[wcisnietyX][wcisnietyY].set("B")
+                                napis[poprzedniX][poprzedniY].set("")
+                                napis[wcisnietyX - 1][wcisnietyY + 1].set("")
+                                poprzedniX = wcisnietyX
+                                poprzedniY = wcisnietyY
+                                wcisniety = False
+                        else:
+                            messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
                     else:
                         messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
             else:
@@ -119,3 +159,4 @@ okno.bind("<Button-1>", click)
 
 plansza()
 okno.mainloop()
+
