@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter import messagebox
+from tkinter import messagebox, font
 
 
 def plansza():
@@ -40,24 +40,32 @@ def reset1():
     global wcisniety
     warcaby.destroy()
     wcisniety = False
+    gracz.set('Tura gracza 1')
     plansza()
 
 def action():
     global wcisnietyX, wcisnietyY
     global wcisniety
     global poprzedniX, poprzedniY
+    global gracz
 
     if wcisniety == False:
-        if napis[wcisnietyX][wcisnietyY].get() == "C":
-            napis[wcisnietyX][wcisnietyY].set("[C]")
-            poprzedniX = wcisnietyX
-            poprzedniY = wcisnietyY
-            wcisniety = True
-        if napis[wcisnietyX][wcisnietyY].get() == "B":
-            napis[wcisnietyX][wcisnietyY].set("[B]")
-            poprzedniX = wcisnietyX
-            poprzedniY = wcisnietyY
-            wcisniety = True
+        if(gracz.get()=='Tura gracza 2'):
+            if napis[wcisnietyX][wcisnietyY].get() == "C":
+                napis[wcisnietyX][wcisnietyY].set("[C]")
+                poprzedniX = wcisnietyX
+                poprzedniY = wcisnietyY
+                wcisniety = True
+            else:
+                messagebox.showerror(title="Zły wybór", message="Ruch gracza 2")
+        if(gracz.get()=='Tura gracza 1'):
+            if napis[wcisnietyX][wcisnietyY].get() == "B":
+                napis[wcisnietyX][wcisnietyY].set("[B]")
+                poprzedniX = wcisnietyX
+                poprzedniY = wcisnietyY
+                wcisniety = True
+            else:
+                messagebox.showerror(title="Zły wybór", message="Ruch gracza 1")
     else:
         if napis[poprzedniX][poprzedniY].get() == "[C]":
             if napis[wcisnietyX][wcisnietyY].get() == "C":
@@ -83,6 +91,7 @@ def action():
                             poprzedniX = wcisnietyX
                             poprzedniY = wcisnietyY
                             wcisniety = False
+                            gracz.set('Tura gracza 1')
                     elif (wcisnietyX == poprzedniX - 2) and (wcisnietyY == poprzedniY + 2 or wcisnietyY == poprzedniY - 2):
                         if (wcisnietyY == poprzedniY + 2):
                             if (napis[wcisnietyX + 1][wcisnietyY - 1].get() == "B"):
@@ -92,6 +101,7 @@ def action():
                                 poprzedniX = wcisnietyX
                                 poprzedniY = wcisnietyY
                                 wcisniety = False
+                                gracz.set('Tura gracza 1')
                         elif (wcisnietyY == poprzedniY - 2):
                             if (napis[wcisnietyX + 1][wcisnietyY + 1].get() == "B"):
                                 napis[wcisnietyX][wcisnietyY].set("C")
@@ -100,6 +110,7 @@ def action():
                                 poprzedniX = wcisnietyX
                                 poprzedniY = wcisnietyY
                                 wcisniety = False
+                                gracz.set('Tura gracza 1')
                         else:
                             messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
                     else:
@@ -118,6 +129,7 @@ def action():
                             poprzedniX = wcisnietyX
                             poprzedniY = wcisnietyY
                             wcisniety = False
+                            gracz.set('Tura gracza 2')
                     elif (wcisnietyX == poprzedniX + 2) and (
                             wcisnietyY == poprzedniY + 2 or wcisnietyY == poprzedniY - 2):
                         if (wcisnietyY == poprzedniY + 2):
@@ -128,6 +140,7 @@ def action():
                                 poprzedniX = wcisnietyX
                                 poprzedniY = wcisnietyY
                                 wcisniety = False
+                                gracz.set('Tura gracza 2')
                         elif (wcisnietyY == poprzedniY - 2):
                             if (napis[wcisnietyX - 1][wcisnietyY + 1].get() == "C"):
                                 napis[wcisnietyX][wcisnietyY].set("B")
@@ -136,6 +149,7 @@ def action():
                                 poprzedniX = wcisnietyX
                                 poprzedniY = wcisnietyY
                                 wcisniety = False
+                                gracz.set('Tura gracza 2')
                         else:
                             messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
                     else:
@@ -155,8 +169,11 @@ okno = Tk()
 okno.title("Warcaby")
 wcisniety = False
 
-okno.bind("<Button-1>", click)
+gracz = StringVar()
+gracz.set('Tura gracza 1')
+tura = Label(okno, textvariable=gracz)
+tura.pack()
 
+okno.bind("<Button-1>", click)
 plansza()
 okno.mainloop()
-
