@@ -35,7 +35,6 @@ def plansza():
             reset = Button(warcaby, text="Reset", command=reset1)
             reset.grid(row=8, columnspan=8)
 
-
 def reset1():
     global wcisniety
     warcaby.destroy()
@@ -138,6 +137,143 @@ def action():
             if (napis[wcisnietyX][wcisnietyY].get() == "C")or(napis[wcisnietyX][wcisnietyY].get() == "Cd"):
                 messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
 
+        # Po wybraniu pionka B
+        if napis[poprzedniX][poprzedniY].get() == "[B]":
+            if (przycisk[wcisnietyX][wcisnietyY]["background"] == "black"):
+                if napis[wcisnietyX][wcisnietyY].get() == "":
+                    # Przesunięcie pionka o jedno pole
+                    if (wcisnietyX == poprzedniX + 1) and (wcisnietyY == poprzedniY + 1 or wcisnietyY == poprzedniY - 1):
+                        if napis[wcisnietyX][wcisnietyY].get() == "":
+                            # zamiana pionka B na Bd
+                            if wcisnietyX == 7:
+                                napis[wcisnietyX][wcisnietyY].set("Bd")
+                                napis[poprzedniX][poprzedniY].set("")
+                                poprzedniX = wcisnietyX
+                                poprzedniY = wcisnietyY
+                                wcisniety = False
+                                gracz.set('Tura gracza 2')
+                            # pionek B
+                            else:
+                                napis[wcisnietyX][wcisnietyY].set("B")
+                                napis[poprzedniX][poprzedniY].set("")
+                                poprzedniX = wcisnietyX
+                                poprzedniY = wcisnietyY
+                                wcisniety = False
+                                gracz.set('Tura gracza 2')
+                    # Pojedyńcze bicie pionkiem
+                    elif (wcisnietyX == poprzedniX + 2) and (wcisnietyY == poprzedniY + 2 or wcisnietyY == poprzedniY - 2):
+                        if (wcisnietyY == poprzedniY + 2):
+                            if (napis[wcisnietyX - 1][wcisnietyY - 1].get() == "C")or(napis[wcisnietyX - 1][wcisnietyY - 1].get() == "Cd"):
+                                # zamiana pionka B na Bd
+                                if wcisnietyX == 7:
+                                    napis[wcisnietyX][wcisnietyY].set("Bd")
+                                    napis[poprzedniX][poprzedniY].set("")
+                                    napis[wcisnietyX - 1][wcisnietyY - 1].set("")
+                                    poprzedniX = wcisnietyX
+                                    poprzedniY = wcisnietyY
+                                    wcisniety = False
+                                    gracz.set('Tura gracza 2')
+                                # pionek B
+                                else:
+                                    napis[wcisnietyX][wcisnietyY].set("B")
+                                    napis[poprzedniX][poprzedniY].set("")
+                                    napis[wcisnietyX - 1][wcisnietyY - 1].set("")
+                                    poprzedniX = wcisnietyX
+                                    poprzedniY = wcisnietyY
+                                    wcisniety = False
+                                    # sprawdzam czy możliwe jest kolejne bicie
+                                    if wcisnietyX < 6:
+                                        if poprzedniY < 2:
+                                            if (napis[poprzedniX + 1][poprzedniY + 1].get() == "C") or (
+                                                    napis[poprzedniX + 1][poprzedniY + 1].get() == "Cd"):
+                                                if napis[poprzedniX + 2][poprzedniY + 2].get() == "":
+                                                    gracz.set('Tura gracza 1')
+                                                else:
+                                                    gracz.set('Tura gracza 2')
+                                        elif poprzedniY > 6:
+                                            if (napis[poprzedniX + 1][poprzedniY - 1].get() == "C") or (
+                                                    napis[poprzedniX + 1][poprzedniY - 1].get() == "Cd"):
+                                                if napis[poprzedniX + 2][poprzedniY - 2].get() == "":
+                                                    gracz.set('Tura gracza 1')
+                                                else:
+                                                    gracz.set('Tura gracza 2')
+                                        else:
+                                            if (napis[poprzedniX + 1][poprzedniY + 1].get() == "C") or (
+                                                    napis[poprzedniX + 1][poprzedniY + 1].get() == "Cd"):
+                                                if napis[poprzedniX + 2][poprzedniY + 2].get() == "":
+                                                    gracz.set('Tura gracza 1')
+                                                else:
+                                                    gracz.set('Tura gracza 2')
+                                            if (napis[poprzedniX + 1][poprzedniY - 1].get() == "C") or (
+                                                    napis[poprzedniX + 1][poprzedniY - 1].get() == "Cd"):
+                                                if napis[poprzedniX + 2][poprzedniY - 2].get() == "":
+                                                    gracz.set('Tura gracza 1')
+                                                else:
+                                                    gracz.set('Tura gracza 2')
+                                            else:
+                                                gracz.set('Tura gracza 2')
+                                    else:
+                                        gracz.set('Tura gracza 2')
+
+                        elif (wcisnietyY == poprzedniY - 2):
+                            if (napis[wcisnietyX - 1][wcisnietyY + 1].get() == "C")or(napis[wcisnietyX - 1][wcisnietyY + 1].get() == "Cd"):
+                                # zamiana pionka B na Bd
+                                if wcisnietyX == 7:
+                                    napis[wcisnietyX][wcisnietyY].set("Bd")
+                                    napis[poprzedniX][poprzedniY].set("")
+                                    napis[wcisnietyX - 1][wcisnietyY + 1].set("")
+                                    poprzedniX = wcisnietyX
+                                    poprzedniY = wcisnietyY
+                                    wcisniety = False
+                                    gracz.set('Tura gracza 2')
+                                    # pionek B
+                                else:
+                                    napis[wcisnietyX][wcisnietyY].set("B")
+                                    napis[poprzedniX][poprzedniY].set("")
+                                    napis[wcisnietyX - 1][wcisnietyY + 1].set("")
+                                    poprzedniX = wcisnietyX
+                                    poprzedniY = wcisnietyY
+                                    wcisniety = False
+                                    # sprawdzam czy możliwe jest kolejne bicie
+                                    if poprzedniX < 6:
+                                        if poprzedniY < 2:
+                                            if (napis[poprzedniX + 1][poprzedniY + 1].get() == "C") or (
+                                                    napis[poprzedniX + 1][poprzedniY + 1].get() == "Cd"):
+                                                if napis[poprzedniX + 2][poprzedniY + 2].get() == "":
+                                                    gracz.set('Tura gracza 1')
+                                                else:
+                                                    gracz.set('Tura gracza 2')
+                                        elif poprzedniY > 6:
+                                            if (napis[poprzedniX + 1][poprzedniY - 1].get() == "C") or (
+                                                    napis[poprzedniX + 1][poprzedniY - 1].get() == "Cd"):
+                                                if napis[poprzedniX + 2][poprzedniY - 2].get() == "":
+                                                    gracz.set('Tura gracza 1')
+                                                else:
+                                                    gracz.set('Tura gracza 2')
+                                        else:
+                                            if (napis[poprzedniX + 1][poprzedniY + 1].get() == "C") or (
+                                                    napis[poprzedniX + 1][poprzedniY + 1].get() == "Cd"):
+                                                if napis[poprzedniX + 2][poprzedniY + 2].get() == "":
+                                                    gracz.set('Tura gracza 1')
+                                                else:
+                                                    gracz.set('Tura gracza 2')
+                                            if (napis[poprzedniX + 1][poprzedniY - 1].get() == "C") or (
+                                                    napis[poprzedniX + 1][poprzedniY - 1].get() == "Cd"):
+                                                if napis[poprzedniX + 2][poprzedniY - 2].get() == "":
+                                                    gracz.set('Tura gracza 1')
+                                                else:
+                                                    gracz.set('Tura gracza 2')
+                                            else:
+                                                gracz.set('Tura gracza 2')
+                                    else:
+                                        gracz.set('Tura gracza 2')
+                        else:
+                            messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
+                    else:
+                        messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
+            else:
+                messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
+
         # Po wybraniu pionka C
         if napis[poprzedniX][poprzedniY].get() == "[C]":
             if (przycisk[wcisnietyX][wcisnietyY]["background"] == "black"):
@@ -181,24 +317,39 @@ def action():
                                     napis[wcisnietyX + 1][wcisnietyY - 1].set("")
                                     poprzedniX = wcisnietyX
                                     poprzedniY = wcisnietyY
+                                    wcisniety = False
                                     # sprawdzam czy możliwe jest kolejne bicie
-                                    if (poprzedniX > 1):
-                                        if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B") or (
-                                                napis[poprzedniX - 1][poprzedniY + 1].get() == "B") or (
-                                                napis[poprzedniX - 1][poprzedniY - 1].get() == "Bd") or (
-                                                napis[poprzedniX - 1][poprzedniY + 1].get() == "Bd"):
-                                            if (napis[poprzedniX - 2][poprzedniY - 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY + 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY - 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY + 2].get() == ""):
-                                                napis[poprzedniX][poprzedniY].set("[C]")
+                                    if poprzedniX > 1:
+                                        if poprzedniY < 2:
+                                            if (napis[poprzedniX - 1][poprzedniY + 1].get() == "B") or (
+                                                    napis[poprzedniX - 1][poprzedniY + 1].get() == "Bd"):
+                                                if napis[poprzedniX - 2][poprzedniY + 2].get() == "":
+                                                    gracz.set('Tura gracza 2')
+                                                else:
+                                                    gracz.set('Tura gracza 1')
+                                        elif poprzedniY > 6:
+                                            if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B") or (
+                                                    napis[poprzedniX - 1][poprzedniY - 1].get() == "Bd"):
+                                                if napis[poprzedniX - 2][poprzedniY - 2].get() == "":
+                                                    gracz.set('Tura gracza 2')
+                                                else:
+                                                    gracz.set('Tura gracza 1')
+                                        else:
+                                            if (napis[poprzedniX - 1][poprzedniY + 1].get() == "B") or (
+                                                    napis[poprzedniX - 1][poprzedniY + 1].get() == "Bd"):
+                                                if napis[poprzedniX - 2][poprzedniY + 2].get() == "":
+                                                    gracz.set('Tura gracza 2')
+                                                else:
+                                                    gracz.set('Tura gracza 1')
+                                            if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B") or (
+                                                    napis[poprzedniX - 1][poprzedniY - 1].get() == "Bd"):
+                                                if napis[poprzedniX - 2][poprzedniY - 2].get() == "":
+                                                    gracz.set('Tura gracza 2')
+                                                else:
+                                                    gracz.set('Tura gracza 1')
                                             else:
-                                                napis[poprzedniX][poprzedniY].set("C")
-                                                wcisniety = False
                                                 gracz.set('Tura gracza 1')
                                     else:
-                                        napis[poprzedniX][poprzedniY].set("C")
-                                        wcisniety = False
                                         gracz.set('Tura gracza 1')
 
                         elif (wcisnietyY == poprzedniY - 2):
@@ -219,24 +370,39 @@ def action():
                                     napis[wcisnietyX + 1][wcisnietyY + 1].set("")
                                     poprzedniX = wcisnietyX
                                     poprzedniY = wcisnietyY
+                                    wcisniety = False
                                     # sprawdzam czy możliwe jest kolejne bicie
-                                    if (poprzedniX>1):
-                                        if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B") or (
-                                                napis[poprzedniX - 1][poprzedniY + 1].get() == "B") or (
-                                                napis[poprzedniX - 1][poprzedniY - 1].get() == "Bd") or (
-                                                napis[poprzedniX - 1][poprzedniY + 1].get() == "Bd"):
-                                            if (napis[poprzedniX - 2][poprzedniY - 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY + 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY - 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY + 2].get() == ""):
-                                                napis[poprzedniX][poprzedniY].set("[C]")
+                                    if poprzedniX > 1:
+                                        if poprzedniY < 2:
+                                            if (napis[poprzedniX - 1][poprzedniY + 1].get() == "B") or (
+                                                    napis[poprzedniX - 1][poprzedniY + 1].get() == "Bd"):
+                                                if napis[poprzedniX - 2][poprzedniY + 2].get() == "":
+                                                    gracz.set('Tura gracza 2')
+                                                else:
+                                                    gracz.set('Tura gracza 1')
+                                        elif poprzedniY > 6:
+                                            if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B") or (
+                                                    napis[poprzedniX - 1][poprzedniY - 1].get() == "Bd"):
+                                                if napis[poprzedniX - 2][poprzedniY - 2].get() == "":
+                                                    gracz.set('Tura gracza 2')
+                                                else:
+                                                    gracz.set('Tura gracza 1')
+                                        else:
+                                            if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B") or (
+                                                    napis[poprzedniX - 1][poprzedniY - 1].get() == "Bd"):
+                                                if napis[poprzedniX - 2][poprzedniY - 2].get() == "":
+                                                    gracz.set('Tura gracza 2')
+                                                else:
+                                                    gracz.set('Tura gracza 1')
+                                            if (napis[poprzedniX - 1][poprzedniY + 1].get() == "B") or (
+                                                    napis[poprzedniX - 1][poprzedniY + 1].get() == "Bd"):
+                                                if napis[poprzedniX - 2][poprzedniY + 2].get() == "":
+                                                    gracz.set('Tura gracza 2')
+                                                else:
+                                                    gracz.set('Tura gracza 1')
                                             else:
-                                                napis[poprzedniX][poprzedniY].set("C")
-                                                wcisniety = False
                                                 gracz.set('Tura gracza 1')
                                     else:
-                                        napis[poprzedniX][poprzedniY].set("C")
-                                        wcisniety = False
                                         gracz.set('Tura gracza 1')
                         else:
                             messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
@@ -304,111 +470,6 @@ def action():
             else:
                 messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
 
-        # Po wybraniu pionka B
-        if napis[poprzedniX][poprzedniY].get() == "[B]":
-            if (przycisk[wcisnietyX][wcisnietyY]["background"] == "black"):
-                if napis[wcisnietyX][wcisnietyY].get() == "":
-                    # Przesunięcie pionka o jedno pole
-                    if (wcisnietyX == poprzedniX + 1) and (wcisnietyY == poprzedniY + 1 or wcisnietyY == poprzedniY - 1):
-                        if napis[wcisnietyX][wcisnietyY].get() == "":
-                            # zamiana pionka B na Bd
-                            if wcisnietyX == 7:
-                                napis[wcisnietyX][wcisnietyY].set("Bd")
-                                napis[poprzedniX][poprzedniY].set("")
-                                poprzedniX = wcisnietyX
-                                poprzedniY = wcisnietyY
-                                wcisniety = False
-                                gracz.set('Tura gracza 2')
-                            # pionek B
-                            else:
-                                napis[wcisnietyX][wcisnietyY].set("B")
-                                napis[poprzedniX][poprzedniY].set("")
-                                poprzedniX = wcisnietyX
-                                poprzedniY = wcisnietyY
-                                wcisniety = False
-                                gracz.set('Tura gracza 2')
-                    # Pojedyńcze bicie pionkiem
-                    elif (wcisnietyX == poprzedniX + 2) and (wcisnietyY == poprzedniY + 2 or wcisnietyY == poprzedniY - 2):
-                        if (wcisnietyY == poprzedniY + 2):
-                            if (napis[wcisnietyX - 1][wcisnietyY - 1].get() == "C")or(napis[wcisnietyX - 1][wcisnietyY - 1].get() == "Cd"):
-                                # zamiana pionka B na Bd
-                                if wcisnietyX == 7:
-                                    napis[wcisnietyX][wcisnietyY].set("Bd")
-                                    napis[poprzedniX][poprzedniY].set("")
-                                    napis[wcisnietyX - 1][wcisnietyY - 1].set("")
-                                    poprzedniX = wcisnietyX
-                                    poprzedniY = wcisnietyY
-                                    wcisniety = False
-                                    gracz.set('Tura gracza 2')
-                                # pionek B
-                                else:
-                                    napis[wcisnietyX][wcisnietyY].set("B")
-                                    napis[poprzedniX][poprzedniY].set("")
-                                    napis[wcisnietyX - 1][wcisnietyY - 1].set("")
-                                    poprzedniX = wcisnietyX
-                                    poprzedniY = wcisnietyY
-                                    # sprawdzam czy możliwe jest kolejne bicie
-                                    if (poprzedniX < 6):
-                                        if (napis[poprzedniX - 1][poprzedniY - 1].get() == "C") or (
-                                                napis[poprzedniX - 1][poprzedniY + 1].get() == "C") or (
-                                                napis[poprzedniX - 1][poprzedniY - 1].get() == "Cd") or (
-                                                napis[poprzedniX - 1][poprzedniY + 1].get() == "Cd"):
-                                            if (napis[poprzedniX - 2][poprzedniY - 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY + 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY - 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY + 2].get() == ""):
-                                                napis[poprzedniX][poprzedniY].set("[B]")
-                                            else:
-                                                napis[poprzedniX][poprzedniY].set("B")
-                                                wcisniety = False
-                                                gracz.set('Tura gracza 2')
-                                    else:
-                                        napis[poprzedniX][poprzedniY].set("B")
-                                        wcisniety = False
-                                        gracz.set('Tura gracza 2')
-                        elif (wcisnietyY == poprzedniY - 2):
-                            if (napis[wcisnietyX - 1][wcisnietyY + 1].get() == "C")or(napis[wcisnietyX - 1][wcisnietyY + 1].get() == "Cd"):
-                                # zamiana pionka B na Bd
-                                if wcisnietyX == 7:
-                                    napis[wcisnietyX][wcisnietyY].set("Bd")
-                                    napis[poprzedniX][poprzedniY].set("")
-                                    napis[wcisnietyX - 1][wcisnietyY + 1].set("")
-                                    poprzedniX = wcisnietyX
-                                    poprzedniY = wcisnietyY
-                                    wcisniety = False
-                                    gracz.set('Tura gracza 2')
-                                # pionek B
-                                else:
-                                    napis[wcisnietyX][wcisnietyY].set("B")
-                                    napis[poprzedniX][poprzedniY].set("")
-                                    napis[wcisnietyX - 1][wcisnietyY + 1].set("")
-                                    poprzedniX = wcisnietyX
-                                    poprzedniY = wcisnietyY
-                                    # sprawdzam czy możliwe jest kolejne bicie
-                                    if (poprzedniX < 6):
-                                        if (napis[poprzedniX - 1][poprzedniY - 1].get() == "C") or (
-                                                napis[poprzedniX - 1][poprzedniY + 1].get() == "C") or (
-                                                napis[poprzedniX - 1][poprzedniY - 1].get() == "Cd") or (
-                                                napis[poprzedniX - 1][poprzedniY + 1].get() == "Cd"):
-                                            if (napis[poprzedniX - 2][poprzedniY - 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY + 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY - 2].get() == "") or (
-                                                    napis[poprzedniX - 2][poprzedniY + 2].get() == ""):
-                                                napis[poprzedniX][poprzedniY].set("[B]")
-                                            else:
-                                                napis[poprzedniX][poprzedniY].set("B")
-                                                wcisniety = False
-                                                gracz.set('Tura gracza 2')
-                                    else:
-                                        napis[poprzedniX][poprzedniY].set("B")
-                                        wcisniety = False
-                                        gracz.set('Tura gracza 2')
-                        else:
-                            messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
-                    else:
-                        messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
-            else:
-                messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
 
         # Po wybraniu pionka Bd
         if napis[poprzedniX][poprzedniY].get() == "[Bd]":
@@ -488,4 +549,3 @@ tura.pack()
 okno.bind("<Button-1>", click)
 plansza()
 okno.mainloop()
-
