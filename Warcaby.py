@@ -32,10 +32,157 @@ def plansza():
                 kolor = "white"
 
 
-            reset = Button(warcaby, text="Reset", command=reset1)
-            reset.grid(row=8, columnspan=8)
+    reset = Button(warcaby, text="Reset", command=resetbutton).grid(row=8,column=1)
+    test4 = Button(warcaby, text="Test 4", command=test4button).grid(row=8,column=2)
+    test5 = Button(warcaby, text="Test 5", command=test5button).grid(row=8,column=3)
+    test6 = Button(warcaby, text="Test 6", command=test6button).grid(row=8,column=4)
+    test7i8 = Button(warcaby, text="Test 7,8", command=test7i8button).grid(row=8,column=5)
 
-def reset1():
+
+def test4():
+    global warcaby
+    warcaby = Frame(okno)
+    warcaby.pack()
+    global przycisk
+    global napis
+    przycisk = [[0 for x in range(8)] for y in range(8)]
+    napis = [[0 for x in range(8)] for y in range(8)]
+    kolor = "black"
+    for x in range(8):
+        if kolor == "white":
+            kolor = "black"
+        else:
+            kolor = "white"
+        for y in range(8):
+            napis[x][y] = StringVar()
+            napis[x][y].set("")
+            przycisk[x][y] = Button(warcaby, height=3, width=6, bg=kolor, fg="white",
+                                    textvariable=napis[x][y], command=action)
+            przycisk[x][y].grid(row=x, column=y)
+            if kolor == "white":
+                kolor = "black"
+            else:
+                kolor = "white"
+
+    napis[7][4].set("C")
+    napis[6][3].set("B")
+    napis[4][3].set("B")
+    napis[2][3].set("B")
+    napis[0][7].set("B")
+
+    reset = Button(warcaby, text="Reset", command=resetbutton).grid(row=8,column=1)
+    test4 = Button(warcaby, text="Test 4", command=test4button).grid(row=8,column=2)
+    test5 = Button(warcaby, text="Test 5", command=test5button).grid(row=8,column=3)
+    test6 = Button(warcaby, text="Test 6", command=test6button).grid(row=8,column=4)
+    test7i8 = Button(warcaby, text="Test 7,8", command=test7i8button).grid(row=8,column=5)
+
+
+def test5():
+    global warcaby
+    warcaby = Frame(okno)
+    warcaby.pack()
+    global przycisk
+    global napis
+    przycisk = [[0 for x in range(8)] for y in range(8)]
+    napis = [[0 for x in range(8)] for y in range(8)]
+    kolor = "black"
+    for x in range(8):
+        if kolor == "white":
+            kolor = "black"
+        else:
+            kolor = "white"
+        for y in range(8):
+            napis[x][y] = StringVar()
+            napis[x][y].set("")
+            przycisk[x][y] = Button(warcaby, height=3, width=6, bg=kolor, fg="white",
+                                    textvariable=napis[x][y], command=action)
+            przycisk[x][y].grid(row=x, column=y)
+            if kolor == "white":
+                kolor = "black"
+            else:
+                kolor = "white"
+
+    napis[6][3].set("B")
+    napis[1][4].set("C")
+
+    reset = Button(warcaby, text="Reset", command=resetbutton).grid(row=8,column=1)
+    test4 = Button(warcaby, text="Test 4", command=test4button).grid(row=8,column=2)
+    test5 = Button(warcaby, text="Test 5", command=test5button).grid(row=8,column=3)
+    test6 = Button(warcaby, text="Test 6", command=test6button).grid(row=8,column=4)
+    test7i8 = Button(warcaby, text="Test 7,8", command=test7i8button).grid(row=8,column=5)
+
+
+def test6():
+    global warcaby
+    warcaby = Frame(okno)
+    warcaby.pack()
+    global przycisk
+    global napis
+    przycisk = [[0 for x in range(8)] for y in range(8)]
+    napis = [[0 for x in range(8)] for y in range(8)]
+    kolor = "black"
+    for x in range(8):
+        if kolor == "white":
+            kolor = "black"
+        else:
+            kolor = "white"
+        for y in range(8):
+            napis[x][y] = StringVar()
+            napis[x][y].set("")
+            przycisk[x][y] = Button(warcaby, height=3, width=6, bg=kolor, fg="white",
+                                    textvariable=napis[x][y], command=action)
+            przycisk[x][y].grid(row=x, column=y)
+            if kolor == "white":
+                kolor = "black"
+            else:
+                kolor = "white"
+
+    napis[5][4].set("Cd")
+    napis[4][3].set("B")
+    napis[0][7].set("B")
+
+    reset = Button(warcaby, text="Reset", command=resetbutton).grid(row=8,column=1)
+    test4 = Button(warcaby, text="Test 4", command=test4button).grid(row=8,column=2)
+    test5 = Button(warcaby, text="Test 5", command=test5button).grid(row=8,column=3)
+    test6 = Button(warcaby, text="Test 6", command=test6button).grid(row=8,column=4)
+    test7i8 = Button(warcaby, text="Test 7,8", command=test7i8button).grid(row=8,column=5)
+
+def test7i8():
+    global warcaby
+    warcaby = Frame(okno)
+    warcaby.pack()
+    global przycisk
+    global napis
+    przycisk = [[0 for x in range(8)] for y in range(8)]
+    napis = [[0 for x in range(8)] for y in range(8)]
+    kolor = "black"
+    for x in range(8):
+        if kolor == "white":
+            kolor = "black"
+        else:
+            kolor = "white"
+        for y in range(8):
+            napis[x][y] = StringVar()
+            napis[x][y].set("")
+            przycisk[x][y] = Button(warcaby, height=3, width=6, bg=kolor, fg="white",
+                                    textvariable=napis[x][y], command=action)
+            przycisk[x][y].grid(row=x, column=y)
+            if kolor == "white":
+                kolor = "black"
+            else:
+                kolor = "white"
+
+    napis[5][4].set("C")
+    napis[4][3].set("B")
+
+    reset = Button(warcaby, text="Reset", command=resetbutton).grid(row=8,column=1)
+    test4 = Button(warcaby, text="Test 4", command=test4button).grid(row=8,column=2)
+    test5 = Button(warcaby, text="Test 5", command=test5button).grid(row=8,column=3)
+    test6 = Button(warcaby, text="Test 6", command=test6button).grid(row=8,column=4)
+    test7i8 = Button(warcaby, text="Test 7,8", command=test7i8button).grid(row=8,column=5)
+
+
+def resetbutton():
     global wcisniety, ile_bialych, ile_czarnych, kolejne_bicie
     ile_bialych = 12
     ile_czarnych = 12
@@ -45,10 +192,49 @@ def reset1():
     gracz.set('Tura gracza 1')
     plansza()
 
+def test4button():
+    global wcisniety, ile_bialych, ile_czarnych, kolejne_bicie
+    ile_bialych = 4
+    ile_czarnych = 1
+    warcaby.destroy()
+    wcisniety = False
+    kolejne_bicie = False
+    gracz.set('Tura gracza 2')
+    test4()
+
+def test5button():
+    global wcisniety, ile_bialych, ile_czarnych, kolejne_bicie
+    ile_bialych = 1
+    ile_czarnych = 1
+    warcaby.destroy()
+    wcisniety = False
+    kolejne_bicie = False
+    gracz.set('Tura gracza 1')
+    test5()
+
+def test6button():
+    global wcisniety, ile_bialych, ile_czarnych, kolejne_bicie
+    ile_bialych = 2
+    ile_czarnych = 1
+    warcaby.destroy()
+    wcisniety = False
+    kolejne_bicie = False
+    gracz.set('Tura gracza 2')
+    test6()
+
+def test7i8button():
+    global wcisniety, ile_bialych, ile_czarnych, kolejne_bicie
+    ile_bialych = 1
+    ile_czarnych = 1
+    warcaby.destroy()
+    wcisniety = False
+    kolejne_bicie = False
+    gracz.set('Tura gracza 2')
+    test7i8()
 
 def koniec_gry(zwyciezca):
     messagebox.showinfo(title="Zwycięstwo", message="Wygrał " + zwyciezca)
-    reset1()
+    resetbutton()
 
 def kolejne_bicie_Bd():
     global kolejne_bicie, kolejne_bicie_X, kolejne_bicie_Y
@@ -204,8 +390,8 @@ def kolejne_bicie_Cd():
                 if napis[poprzedniX + 2][poprzedniY + 2].get() == "":
                     gracz.set('Tura gracza 2')
                     kolejne_bicie = True
-                    kolejne_bicie_X = poprzedniX
-                    kolejne_bicie_Y = poprzedniY
+                    kolejne_bicie_X = wcisnietyX
+                    kolejne_bicie_Y = wcisnietyY
 
         elif poprzedniY > 5:
             if (napis[poprzedniX + 1][poprzedniY - 1].get() == "B") or (
@@ -213,8 +399,8 @@ def kolejne_bicie_Cd():
                 if napis[poprzedniX + 2][poprzedniY - 2].get() == "":
                     gracz.set('Tura gracza 2')
                     kolejne_bicie = True
-                    kolejne_bicie_X = poprzedniX
-                    kolejne_bicie_Y = poprzedniY
+                    kolejne_bicie_X = wcisnietyX
+                    kolejne_bicie_Y = wcisnietyY
 
         else:
             if (napis[poprzedniX + 1][poprzedniY + 1].get() == "B" or
@@ -222,16 +408,16 @@ def kolejne_bicie_Cd():
                     napis[poprzedniX + 2][poprzedniY + 2].get() == ""):
                 gracz.set('Tura gracza 2')
                 kolejne_bicie = True
-                kolejne_bicie_X = poprzedniX
-                kolejne_bicie_Y = poprzedniY
+                kolejne_bicie_X = wcisnietyX
+                kolejne_bicie_Y = wcisnietyY
 
             elif (napis[poprzedniX + 1][poprzedniY - 1].get() == "B" or
                     napis[poprzedniX + 1][poprzedniY - 1].get() == "Bd") and (
                     napis[poprzedniX + 2][poprzedniY - 2].get() == ""):
                 gracz.set('Tura gracza 2')
                 kolejne_bicie = True
-                kolejne_bicie_X = poprzedniX
-                kolejne_bicie_Y = poprzedniY
+                kolejne_bicie_X = wcisnietyX
+                kolejne_bicie_Y = wcisnietyY
 
     elif wcisnietyX > 5:
         if poprzedniY < 2:
@@ -240,8 +426,8 @@ def kolejne_bicie_Cd():
                 if napis[poprzedniX - 2][poprzedniY + 2].get() == "":
                     gracz.set('Tura gracza 2')
                     kolejne_bicie = True
-                    kolejne_bicie_X = poprzedniX
-                    kolejne_bicie_Y = poprzedniY
+                    kolejne_bicie_X = wcisnietyX
+                    kolejne_bicie_Y = wcisnietyY
 
         elif poprzedniY > 5:
             if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B") or (
@@ -249,8 +435,8 @@ def kolejne_bicie_Cd():
                 if napis[poprzedniX - 2][poprzedniY - 2].get() == "":
                     gracz.set('Tura gracza 2')
                     kolejne_bicie = True
-                    kolejne_bicie_X = poprzedniX
-                    kolejne_bicie_Y = poprzedniY
+                    kolejne_bicie_X = wcisnietyX
+                    kolejne_bicie_Y = wcisnietyY
 
         else:
             if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B" or
@@ -258,16 +444,16 @@ def kolejne_bicie_Cd():
                     napis[poprzedniX - 2][poprzedniY - 2].get() == ""):
                 gracz.set('Tura gracza 2')
                 kolejne_bicie = True
-                kolejne_bicie_X = poprzedniX
-                kolejne_bicie_Y = poprzedniY
+                kolejne_bicie_X = wcisnietyX
+                kolejne_bicie_Y = wcisnietyY
 
             elif (napis[poprzedniX - 1][poprzedniY + 1].get() == "B" or
                     napis[poprzedniX - 1][poprzedniY + 1].get() == "Bd") and (
                     napis[poprzedniX - 2][poprzedniY + 2].get() == ""):
                 gracz.set('Tura gracza 2')
                 kolejne_bicie = True
-                kolejne_bicie_X = poprzedniX
-                kolejne_bicie_Y = poprzedniY
+                kolejne_bicie_X = wcisnietyX
+                kolejne_bicie_Y = wcisnietyY
 
     else:
         if poprzedniY < 2:
@@ -276,16 +462,16 @@ def kolejne_bicie_Cd():
                 if napis[poprzedniX - 2][poprzedniY + 2].get() == "":
                     gracz.set('Tura gracza 2')
                     kolejne_bicie = True
-                    kolejne_bicie_X = poprzedniX
-                    kolejne_bicie_Y = poprzedniY
+                    kolejne_bicie_X = wcisnietyX
+                    kolejne_bicie_Y = wcisnietyY
 
             elif (napis[poprzedniX + 1][poprzedniY + 1].get() == "B") or (
                     napis[poprzedniX + 1][poprzedniY + 1].get() == "Bd"):
                 if napis[poprzedniX + 2][poprzedniY + 2].get() == "":
                     gracz.set('Tura gracza 2')
                     kolejne_bicie = True
-                    kolejne_bicie_X = poprzedniX
-                    kolejne_bicie_Y = poprzedniY
+                    kolejne_bicie_X = wcisnietyX
+                    kolejne_bicie_Y = wcisnietyY
 
         elif poprzedniY > 5:
             if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B") or (
@@ -293,16 +479,16 @@ def kolejne_bicie_Cd():
                 if napis[poprzedniX - 2][poprzedniY - 2].get() == "":
                     gracz.set('Tura gracza 2')
                     kolejne_bicie = True
-                    kolejne_bicie_X = poprzedniX
-                    kolejne_bicie_Y = poprzedniY
+                    kolejne_bicie_X = wcisnietyX
+                    kolejne_bicie_Y = wcisnietyY
 
             elif (napis[poprzedniX + 1][poprzedniY - 1].get() == "B") or (
                     napis[poprzedniX + 1][poprzedniY - 1].get() == "Bd"):
                 if napis[poprzedniX + 2][poprzedniY - 2].get() == "":
                     gracz.set('Tura gracza 2')
                     kolejne_bicie = True
-                    kolejne_bicie_X = poprzedniX
-                    kolejne_bicie_Y = poprzedniY
+                    kolejne_bicie_X = wcisnietyX
+                    kolejne_bicie_Y = wcisnietyY
 
         else:
             if (napis[poprzedniX - 1][poprzedniY - 1].get() == "B" or
@@ -310,32 +496,32 @@ def kolejne_bicie_Cd():
                     napis[poprzedniX - 2][poprzedniY - 2].get() == ""):
                 gracz.set('Tura gracza 2')
                 kolejne_bicie = True
-                kolejne_bicie_X = poprzedniX
-                kolejne_bicie_Y = poprzedniY
+                kolejne_bicie_X = wcisnietyX
+                kolejne_bicie_Y = wcisnietyY
 
             elif (napis[poprzedniX - 1][poprzedniY + 1].get() == "B" or
                     napis[poprzedniX - 1][poprzedniY + 1].get() == "Bd") and (
                     napis[poprzedniX - 2][poprzedniY + 2].get() == ""):
                 gracz.set('Tura gracza 2')
                 kolejne_bicie = True
-                kolejne_bicie_X = poprzedniX
-                kolejne_bicie_Y = poprzedniY
+                kolejne_bicie_X = wcisnietyX
+                kolejne_bicie_Y = wcisnietyY
 
             elif (napis[poprzedniX + 1][poprzedniY + 1].get() == "B" or
                     napis[poprzedniX + 1][poprzedniY + 1].get() == "Bd") and (
                     napis[poprzedniX + 2][poprzedniY + 2].get() == ""):
                 gracz.set('Tura gracza 2')
                 kolejne_bicie = True
-                kolejne_bicie_X = poprzedniX
-                kolejne_bicie_Y = poprzedniY
+                kolejne_bicie_X = wcisnietyX
+                kolejne_bicie_Y = wcisnietyY
 
             elif (napis[poprzedniX + 1][poprzedniY - 1].get() == "B" or
                     napis[poprzedniX + 1][poprzedniY - 1].get() == "Bd") and (
                     napis[poprzedniX + 2][poprzedniY - 2].get() == ""):
                 gracz.set('Tura gracza 2')
                 kolejne_bicie = True
-                kolejne_bicie_X = poprzedniX
-                kolejne_bicie_Y = poprzedniY
+                kolejne_bicie_X = wcisnietyX
+                kolejne_bicie_Y = wcisnietyY
 
 
 def action():
@@ -469,8 +655,6 @@ def action():
                     poprzedniY = wcisnietyY
                 if (napis[wcisnietyX][wcisnietyY].get() == "C") or (napis[wcisnietyX][wcisnietyY].get() == "Cd"):
                     messagebox.showerror(title="Zły ruch", message="Niedozwolony ruch")
-        else:
-            messagebox.showerror(title="Zły wybór", message="Wykonaj kolejne bicie tym samym pionkiem")
 
         # Po wybraniu pionka B
         if napis[poprzedniX][poprzedniY].get() == "[B]":
@@ -987,4 +1171,3 @@ tura.pack()
 okno.bind("<Button-1>", click)
 plansza()
 okno.mainloop()
-
