@@ -3,8 +3,8 @@
  
 ### "Warcaby"
 
-Paweł Sikora/n
-Nr. Albumu: 130580
+*Paweł Sikora
+*Nr. Albumu: 130580
 
 ### Założenia projektowe
 
