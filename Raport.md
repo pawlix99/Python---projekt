@@ -34,3 +34,6 @@ W grze mamy liczniki pionków graczy. Jeśli któryś z liczników spadnie do ze
 
 Ponadto obok przycisku reset, dodałem przyciski test 4, test 5, test 6 oraz test 7 i 8,
 które dają nam specjalne początkowe rozstawienia, potrzebne do wykonania testów.
+
+### Repozytorium
+Link do repozytorium : [Github](https://github.com/pawlix99/Python---projekt)
